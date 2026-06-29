@@ -1,0 +1,13 @@
+{
+  "name": "project-likha-iskolar",
+  "version": "1.0.0",
+  "description": "Project LIKHA Iskolar PH — NGO website with auth, news CMS, and comments (Netlify + Neon Postgres).",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0"
+  }
+}

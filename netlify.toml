@@ -1,0 +1,14 @@
+# Netlify configuration for Project LIKHA Iskolar PH
+
+[build]
+  publish = "public"                 # static frontend lives here
+  functions = "netlify/functions"    # serverless API lives here
+
+[functions]
+  node_bundler = "esbuild"
+
+# Friendly API routes:  /api/login  ->  /.netlify/functions/login
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
