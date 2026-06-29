@@ -1,9 +1,9 @@
-# Project LIKHA Iskolar PH — Web Application
+# Project LIKHA Iskolar PH; Web Application
 
 A dynamic, database-backed website for **Project LIKHA Iskolar PH**, a Christ-centered
 NGO providing scholarships and formation to underprivileged Filipino youth.
 
-Built for **ITS122P / IT135-8L (Web Systems & Technologies)** — Group 2.
+Built for **ITS122P / IT135-8L (Web Systems & Technologies)** Group 2.
 
 ---
 
@@ -208,6 +208,3 @@ documented clean-ups (all explained at the top of `db/schema.sql`):
   single `created_at` plus an `updated_at` for edit tracking.
 
 ---
-
-*Built with the existing LIKHA design system — Caprasimo + DM Sans, the gold/green/navy
-palette, and the original component styles — so the new pages feel like one site.*
