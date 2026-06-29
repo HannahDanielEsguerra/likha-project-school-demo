@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project LIKHA | Scholarship & Formation Program</title>
+  <meta name="description" content="Project LIKHA provides holistic scholarship, mentorship, and formation support for underprivileged yet academically promising youth." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="top-alert" role="banner">
+    <strong>Current Need:</strong>
+    <span>Help sustain scholarships, school supplies, pastoral care, and student formation for the next academic cycle.</span>
+    <a href="#donate">Respond now</a>
+  </div>
+
+  <header class="site-header" id="top">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="#top" class="brand" aria-label="Project LIKHA home">
+        <span class="brand-mark">L</span>
+        <span>
+          <strong>Project LIKHA</strong>
+          
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <a href="#about">About</a>
+        <a href="#work">What We Do</a>
+        <a href="#beneficiaries">Beneficiaries</a>
+        <a href="news.html">News</a>
+        <a href="#help">Take Action</a>
+        <a href="#donate" class="nav-cta">Donate Now</a>
+        <span id="authNav" class="auth-slot"></span>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section-dark" id="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Scholarship · Formation · Community</p>
+        <h1>Empowering Young Lives for <strong>God's Glory</strong></h1>
+        <p class="hero-lead">Project LIKHA provides holistic support—financial, spiritual, academic, and personal—to underprivileged yet academically promising youth, empowering them to complete their education and grow as Christ-centered individuals.</p>
+        <div class="hero-actions">
+          <a href="#donate" class="button button-primary">Donate Now</a>
+          <a href="#about" class="button button-secondary">Learn More</a>
+        </div>
+      </div>
+
+      <aside class="donation-panel" id="donate" aria-label="Donation pledge form">
+        <p class="panel-kicker">Give support</p>
+        <h2>Make a pledge today</h2>
+        <p>Your generosity helps a scholar focus on learning, formation, and service.</p>
+
+        <div class="field-group">
+          <span class="field-label">Donation Type</span>
+          <div class="segmented-control" role="group" aria-label="Donation type">
+            <button class="segment active" type="button" id="btnMonetary" onclick="setDonationType('monetary')">Monetary</button>
+            <button class="segment" type="button" id="btnInKind" onclick="setDonationType('inkind')">In-Kind</button>
+          </div>
+        </div>
+
+        <div id="monetaryFields">
+          <div class="field-group">
+            <span class="field-label">Frequency</span>
+            <div class="segmented-control" role="group" aria-label="Donation frequency">
+              <button class="segment active" type="button" id="btnMonthly" onclick="setFreq('MONTHLY')">Monthly</button>
+              <button class="segment" type="button" id="btnOneTime" onclick="setFreq('ONE-TIME')">One-Time</button>
+            </div>
+          </div>
+
+          <div class="amount-grid" aria-label="Donation amount options">
+            <button class="amount-btn" type="button" onclick="selectAmt(this, '₱500')">₱500</button>
+            <button class="amount-btn" type="button" onclick="selectAmt(this, '₱1,000')">₱1,000</button>
+            <button class="amount-btn" type="button" onclick="selectAmt(this, '₱2,500')">₱2,500</button>
+          </div>
+
+          <label class="amount-other" for="customAmt">
+            <span>₱</span>
+            <input type="number" id="customAmt" placeholder="Other amount" oninput="clearSelected()" min="1" />
+          </label>
+        </div>
+
+        <div id="inkindFields" class="hidden">
+          <span class="field-label">Item Type</span>
+          <div class="segmented-control wrap" role="group" aria-label="In-kind donation type">
+            <button class="segment active" type="button" id="btnSupplies" onclick="setInKind('School Supplies')">School Supplies</button>
+            <button class="segment" type="button" id="btnHousehold" onclick="setInKind('Household Essentials')">Household Essentials</button>
+            <button class="segment" type="button" id="btnOthers" onclick="setInKind('Others')">Others</button>
+          </div>
+        </div>
+
+        <button class="button button-donate full" type="button" onclick="openDonateModal()">Continue Pledge</button>
+      </aside>
+    </section>
+
+    <section class="intro-strip" aria-label="Project LIKHA summary">
+      <div>
+        <strong>Independent church-based scholarship support</strong>
+        <span>Rooted in faith, accountability, and long-term formation.</span>
+      </div>
+      <a href="#help">See ways to help</a>
+    </section>
+
+    <section class="section section-white two-column" id="about">
+      <div>
+        <p class="eyebrow">Who We Are</p>
+        <h2>Every child is God’s handiwork.</h2>
+        <p>Project LIKHA is a scholarship and formation program rooted in faith and service, dedicated to nurturing the academic and spiritual growth of underprivileged yet promising youth within the church community.</p>
+        <p>We believe that every child is God's handiwork — and that with the right support, they can become servant-leaders who transform their families, their church, and their communities.</p>
+        <blockquote>“For we are God's handiwork, created in Christ Jesus to do good works, which God prepared in advance for us to do."” <cite>— Ephesians 2:10</cite></blockquote>
+      </div>
+      <div class="mission-card-grid">
+        <article class="mission-card">
+          <span>Mission</span>
+          <p>To provide holistic support to underprivileged yet academically promising youth.</p>
+        </article>
+        <article class="mission-card">
+          <span>Vision</span>
+          <p>A transformed generation of educated, faith-driven servant-leaders who break the cycle of poverty, live out Christian values, and actively contribute to the growth of the church and society.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="impact section-muted" aria-label="Project impact snapshot">
+      <div class="impact-heading">
+        <p class="eyebrow">Impact Snapshot</p>
+        <h2>Formation support that surrounds the scholar.</h2>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card">
+          <strong>6</strong>
+          <span>Core support programs</span>
+        </article>
+        <article class="stat-card">
+          <strong>5</strong>
+          <span>Core LIKHA values</span>
+        </article>
+        <article class="stat-card">
+          <strong>2</strong>
+          <span>Primary support pathways</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-white" id="work">
+      <div class="section-heading">
+        <p class="eyebrow">What We Do</p>
+        <h2>Beyond financial aid, we walk with scholars.</h2>
+        <p>Project LIKHA is designed as a holistic support system for students who need both opportunity and guidance.</p>
+      </div>
+
+      <div class="program-grid">
+        <article class="program-card"><span>01</span><h3>Scholarship Assistance</h3><p>Financial assistance for tuition and school-related expenses, awarded based on financial need, academic potential, and church involvement.</p></article>
+        <article class="program-card"><span>02</span><h3>Spiritual Mentorship & Discipleship</h3><p>Regular mentoring through assigned Life Group Leaders, Bible studies, character formation, and discipleship activities.</p></article>
+        <article class="program-card"><span>03</span><h3>Academic Support</h3><p>Tutoring, study support, career guidance, and practical learning workshops.</p></article>
+        <article class="program-card"><span>04</span><h3>Life Skills Development</h3><p>Training in communication, time management, financial literacy, and personal responsibility.</p></article>
+        <article class="program-card"><span>05</span><h3>Community Service & Ministry</h3><p>Required participation in church-led service projects such as Sunday school teaching, youth outreach, tutoring, and community missions.</p></article>
+        <article class="program-card"><span>06</span><h3>Pastoral Care</h3><p>Semi-annual reviews of academic progress, spiritual growth, and community involvement, with counseling and intervention when needed.</p></article>
+        <article class="program-card"><span>06</span><h3>Sustainable Donor Partnership</h3><p>Church-based scholarship fund supported by donors, partner organizations, local businesses, fundraising events, and the Adopt-a-Scholar program.</p></article>
+
+      </div>
+    </section>
+
+    <section class="section section-dark" id="beneficiaries">
+      <div class="section-heading narrow">
+        <p class="eyebrow">Who We Serve</p>
+        <h2>Our Beneficiaries</h2>
+        <p>We serve underprivileged children and youth from economically disadvantaged families within partner communities, including Area 2 of Brgy. Bagong Silangan and students from Silang, Cavite.</p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card"><h3>Academic Promise</h3><p>Students who demonstrate strong academic potential and a genuine commitment to learning, regardless of the financial barriers they face.</p></article>
+        <article class="feature-card"><h3>Church Participation</h3><p>Youth who are committed to personal growth and active involvement in church life, reflecting a heart for faith and community.</p></article>
+        <article class="feature-card"><h3>Verified Need</h3><p>Families screened through home visits and barangay certification to ensure support reaches those who need it most.</p></article>
+        <article class="feature-card"><h3>Family Impact</h3><p>Families of scholars who receive spiritual and social support, and the broader church community which gains future leaders and volunteers.</p></article>
+      </div>
+
+      <div class="beneficiary-action">
+        <button class="button button-primary" type="button" onclick="showComingSoon('scholar')">Apply to be our scholar</button>
+        <span>Coming Soon</span>
+      </div>
+    </section>
+
+    <section class="section section-white" id="updates">
+      <div class="section-heading split">
+        <div>
+          <p class="eyebrow">Latest Updates</p>
+          <h2>Stories, reports, and scholar milestones.</h2>
+        </div>
+        <a href="mailto:likha.donations@gmail.com" class="text-link">Send an update request</a>
+      </div>
+
+      <div class="updates-grid">
+        <article class="update-card">
+          <img class="update-image card-img" src="images/index-image.jpg" alt="Project LIKHA" />
+          <div class="update-body"><span>Scholarship</span><h3>Preparing scholars for the next academic cycle</h3><p>A focused fund drive can help cover school-related needs before enrollment pressure begins.</p></div>
+        </article>
+        <article class="update-card">
+          <div class="update-image image-two"></div>
+          <div class="update-body"><span>Formation</span><h3>Why mentorship matters beyond tuition</h3><p>Scholars need guidance, prayer, accountability, and adult encouragement as much as financial help.</p></div>
+        </article>
+        <article class="update-card">
+          <div class="update-image image-three"></div>
+          <div class="update-body"><span>Community</span><h3>Building a donor partnership rhythm</h3><p>Recurring donors create stability, allowing the team to plan support with greater confidence.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-muted values-section">
+      <div class="section-heading narrow">
+        <p class="eyebrow">Core Values</p>
+        <h2>LIKHA is the shape of the work.</h2>
+      </div>
+      <div class="values-row">
+        <article><strong>L</strong><span>Learning</span></article>
+        <article><strong>I</strong><span>Integrity</span></article>
+        <article><strong>K</strong><span>Knowledge</span></article>
+        <article><strong>H</strong><span>Hope</span></article>
+        <article><strong>A</strong><span>Achievement</span></article>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="help">
+      <div class="section-heading narrow">
+        <p class="eyebrow">How You Can Help</p>
+        <h2>Your support changes the conditions around a scholar.</h2>
+        <p>Whether through prayer, monthly giving, in-kind support, or direct partnership, your contribution helps students keep going.</p>
+      </div>
+
+      <div class="help-grid">
+        <article class="help-card prominent">
+          <h3>Adopt a Scholar</h3>
+          <p>Give reliable recurring support for a student’s educational journey. This can include monthly assistance, school supplies, meals, birthday support, or emergency help.</p>
+          <button class="button button-primary" type="button" onclick="showComingSoon()">Adopt a Scholar</button>
+          <span class="coming-soon-note">Coming Soon</span>
+        </article>
+        <article class="help-card">
+          <h3>Give a Donation</h3>
+          <p>Support the general scholarship fund through a one-time or monthly pledge.</p>
+          <a href="#donate" class="button button-secondary">Make a Pledge</a>
+        </article>
+        <article class="help-card">
+          <h3>Give In-Kind</h3>
+          <p>Donate school supplies, household essentials, or other practical support for scholars and families.</p>
+          <button class="button button-secondary" type="button" onclick="setDonationType('inkind'); document.getElementById('donate').scrollIntoView({behavior:'smooth'});">Donate Items</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="newsletter" id="contact">
+      <div>
+        <p class="eyebrow">Stay Connected</p>
+        <h2>Get updates from Project LIKHA.</h2>
+        <p>For donor coordination, scholar support, and partnership inquiries, contact the team directly.</p>
+      </div>
+      <form class="newsletter-form" onsubmit="submitSubscribe(event)">
+        <label for="subscribeName">First Name</label>
+        <input id="subscribeName" type="text" placeholder="Your name" required />
+        <label for="subscribeEmail">Email</label>
+        <input id="subscribeEmail" type="email" placeholder="your@email.com" required />
+        <button class="button button-donate" type="submit">Subscribe</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div>
+        <a href="#top" class="brand footer-brand">
+          <span class="brand-mark">L</span>
+          <span><strong>Project LIKHA</strong></span>
+        </a>
+        <p>Scholarship and formation support for underprivileged yet academically promising youth.</p>
+      </div>
+      <div class="footer-links">
+        <div><h4>Explore</h4><a href="#about">About</a><a href="#work">What We Do</a><a href="#beneficiaries">Beneficiaries</a><a href="#updates">Updates</a></div>
+        <div><h4>Take Action</h4><a href="#donate">Donate</a><a href="#help">Adopt a Scholar</a><a href="#contact">Subscribe</a><a href="mailto:likha.donations@gmail.com">Contact</a></div>
+        <div><h4>Contact</h4><a href="mailto:likha.donations@gmail.com">likha.donations@gmail.com</a><span>Philippines</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Project LIKHA</span>
+      <span>“Created in Christ Jesus to do good works.” — Eph. 2:10</span>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="donateModal" aria-hidden="true">
+    <div class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="donateTitle">
+      <button class="modal-close" type="button" onclick="closeModal('donateModal')" aria-label="Close donation form">×</button>
+      <div id="donateForm">
+        <h3 id="donateTitle">Complete Your Pledge</h3>
+        <p id="donateIntro">Fill in your details and the Project LIKHA team will reach out to coordinate your donation intent.</p>
+
+        <div class="form-grid two">
+          <div>
+            <label for="donateFirstName">First Name <span class="required">Required</span></label>
+            <input type="text" id="donateFirstName" placeholder="First name" required />
+          </div>
+          <div>
+            <label for="donateLastName">Last Name <span class="required">Required</span></label>
+            <input type="text" id="donateLastName" placeholder="Last name" required />
+          </div>
+        </div>
+
+        <label for="donateEmail">Email Address <span class="required">Required</span></label>
+        <input type="email" id="donateEmail" placeholder="your@email.com" required />
+
+        <label for="donateCity">City, Province <span class="required">Required</span></label>
+        <input type="text" id="donateCity" placeholder="e.g. Quezon City, Metro Manila" required />
+
+        <label for="donateContactMethod">Preferred Contact Method</label>
+        <select id="donateContactMethod">
+          <option value="Email">Email</option>
+          <option value="Phone">Phone</option>
+          <option value="SMS">SMS</option>
+        </select>
+
+        <div id="inKindIntentFields" class="hidden">
+          <label>Description of items with quantity <span class="required">Required</span></label>
+          <div class="item-table-wrap">
+            <table class="item-table" aria-label="Description of in-kind donation items">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Description</th>
+                  <th>Condition</th>
+                  <th>Quantity</th>
+                  <th><span class="sr-only">Remove</span></th>
+                </tr>
+              </thead>
+              <tbody id="itemRows">
+                <tr>
+                  <td><input type="text" class="item-name" placeholder="Notebook" /></td>
+                  <td><input type="text" class="item-description" placeholder="Size, brand, notes" /></td>
+                  <td>
+                    <select class="item-condition">
+                      <option value="Brand New">Brand New</option>
+                      <option value="Like New">Like New</option>
+                      <option value="Gently Used">Gently Used</option>
+                      <option value="Good Condition">Good Condition</option>
+                    </select>
+                  </td>
+                  <td><input type="number" class="item-quantity" placeholder="0" min="1" /></td>
+                  <td><button class="row-remove" type="button" onclick="removeItemRow(this)" aria-label="Remove item row">×</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <button class="add-row-btn" type="button" onclick="addItemRow()">+ Add Item Row</button>
+
+          <label for="deliveryMethod">Preferred Delivery Method <span class="optional">Optional</span></label>
+          <select id="deliveryMethod">
+            <option value="">Select delivery method</option>
+            <option value="I will drop off">I will drop off</option>
+            <option value="Please arrange pick-up">Please arrange pick-up</option>
+            <option value="To be discussed">To be discussed</option>
+          </select>
+
+          <label for="donatePurpose">Purpose/Designation <span class="optional">Optional</span></label>
+          <textarea id="donatePurpose" placeholder="e.g. For school supplies, general scholar support, or a specific need"></textarea>
+        </div>
+
+        <button id="donateSubmitButton" class="button button-donate full modal-submit" type="button" onclick="submitDonate()">Submit Monetary Donation Intent</button>
+      </div>
+      <div class="modal-success" id="donateSuccess">
+        <div class="success-icon">🙏</div>
+        <h3>Thank you.</h3>
+        <p>Your donation intent has been prepared for the team at <strong>likha.donations@gmail.com</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="adoptModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="adoptTitle">
+      <button class="modal-close" type="button" onclick="closeModal('adoptModal')" aria-label="Close adopt-a-scholar form">×</button>
+      <div id="adoptForm">
+        <h3 id="adoptTitle">Adopt a Scholar</h3>
+        <p>Share your details and the team will coordinate your preferred support commitment.</p>
+        <label for="adoptName">Full Name</label>
+        <input type="text" id="adoptName" placeholder="Your name" />
+        <label for="adoptEmail">Email Address</label>
+        <input type="email" id="adoptEmail" placeholder="your@email.com" />
+        <label for="adoptPhone">Phone Number</label>
+        <input type="tel" id="adoptPhone" placeholder="+63 9XX XXX XXXX" />
+        <label for="adoptCity">City, Province</label>
+        <input type="text" id="adoptCity" placeholder="e.g. Quezon City, Metro Manila" />
+        <span class="field-label">Commitment</span>
+        <div class="segmented-control wrap modal-segments">
+          <button class="segment active" type="button" id="btn3mo" onclick="setCommitment('3 Months')">3 Months</button>
+          <button class="segment" type="button" id="btn6mo" onclick="setCommitment('6 Months')">6 Months</button>
+          <button class="segment" type="button" id="btn9mo" onclick="setCommitment('9 Months')">9 Months</button>
+          <button class="segment" type="button" id="btn1yr" onclick="setCommitment('1 Year')">1 Year</button>
+        </div>
+        <label for="adoptMessage">Message</label>
+        <textarea id="adoptMessage" placeholder="Anything you'd like us to know..."></textarea>
+        <button class="button button-donate full" type="button" onclick="submitAdopt()">Send My Interest</button>
+      </div>
+      <div class="modal-success" id="adoptSuccess">
+        <div class="success-icon">✨</div>
+        <h3>Interest received.</h3>
+        <p>Your message has been prepared for the Project LIKHA team.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

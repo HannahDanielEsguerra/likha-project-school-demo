@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Portal | Project LIKHA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="/" class="brand" aria-label="Project LIKHA home">
+        <span class="brand-mark">L</span>
+        <span><strong>Project LIKHA</strong></span>
+      </a>
+      <div class="nav-menu sub-nav">
+        <a href="/">Home</a>
+        <a href="/news.html">News</a>
+        <span id="authNav" class="auth-slot"></span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="admin-page">
+    <!-- Shown while checking access / when not allowed -->
+    <section class="admin-gate" id="gate">
+      <p class="loading">Checking access…</p>
+    </section>
+
+    <!-- The portal itself -->
+    <section class="admin-shell hidden" id="shell">
+      <div class="admin-head">
+        <div>
+          <p class="eyebrow">Admin Portal</p>
+          <h1>Manage Project LIKHA</h1>
+        </div>
+        <p class="admin-whoami" id="whoami"></p>
+      </div>
+
+      <div class="admin-tabs" role="tablist">
+        <button class="admin-tab active" data-tab="posts" type="button">Posts</button>
+        <button class="admin-tab" data-tab="comments" type="button">Comments</button>
+        <button class="admin-tab admin-only" data-tab="categories" type="button">Categories</button>
+        <button class="admin-tab admin-only" data-tab="permissions" type="button">Permissions</button>
+      </div>
+
+      <!-- POSTS -->
+      <div class="admin-panel" id="panel-posts">
+        <div class="panel-bar">
+          <h2>News posts</h2>
+          <button class="button button-donate" type="button" id="newPostBtn">+ New post</button>
+        </div>
+        <div class="table-wrap">
+          <table class="admin-table" id="postsTable">
+            <thead><tr><th>Title</th><th>Category</th><th>Status</th><th>Date</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- COMMENTS -->
+      <div class="admin-panel hidden" id="panel-comments">
+        <div class="panel-bar"><h2>Recent comments</h2></div>
+        <div class="table-wrap">
+          <table class="admin-table" id="commentsTable">
+            <thead><tr><th>Comment</th><th>By</th><th>On post</th><th>Date</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CATEGORIES -->
+      <div class="admin-panel hidden" id="panel-categories">
+        <div class="panel-bar"><h2>Categories</h2></div>
+        <div class="cat-form">
+          <input type="text" id="catName" placeholder="Category name" />
+          <input type="text" id="catDesc" placeholder="Short description (optional)" />
+          <button class="button button-donate" type="button" id="addCatBtn">Add</button>
+        </div>
+        <div class="table-wrap">
+          <table class="admin-table" id="catTable">
+            <thead><tr><th>Name</th><th>Description</th><th>Posts</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PERMISSIONS -->
+      <div class="admin-panel hidden" id="panel-permissions">
+        <div class="panel-bar"><h2>Members & roles</h2></div>
+        <div class="table-wrap">
+          <table class="admin-table" id="usersTable">
+            <thead><tr><th>Name</th><th>Username</th><th>Email</th><th>Role</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Post editor modal -->
+  <div class="modal-overlay" id="postModal" aria-hidden="true">
+    <div class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="postModalTitle">
+      <button class="modal-close" type="button" id="postModalClose" aria-label="Close">×</button>
+      <h3 id="postModalTitle">New post</h3>
+      <div class="auth-error hidden" id="postError" role="alert"></div>
+
+      <label for="postTitle">Title</label>
+      <input type="text" id="postTitle" />
+
+      <label for="postCategory">Category</label>
+      <select id="postCategory"></select>
+
+      <label for="postStatus">Status</label>
+      <select id="postStatus">
+        <option value="draft">Draft</option>
+        <option value="published">Published</option>
+        <option value="archived">Archived</option>
+      </select>
+
+      <label for="postContent">Content</label>
+      <textarea id="postContent" rows="8" placeholder="Write the story…"></textarea>
+
+      <label for="postImageInput">Featured image <span class="field-hint">(optional)</span></label>
+      <div class="image-upload">
+        <img id="postImagePreview" class="image-preview hidden" alt="Selected featured image" />
+        <div class="image-upload-row">
+          <input type="file" id="postImageInput" accept="image/*" />
+          <button type="button" id="postImageRemove" class="link-btn danger hidden">Remove image</button>
+        </div>
+        <p class="field-hint">JPG or PNG. Large photos are automatically resized before upload.</p>
+      </div>
+
+      <button class="button button-donate full modal-submit" type="button" id="savePostBtn">Save post</button>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

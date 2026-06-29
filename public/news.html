@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News & Updates | Project LIKHA</title>
+  <meta name="description" content="Latest news, scholar stories, and updates from Project LIKHA Iskolar PH." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="/" class="brand" aria-label="Project LIKHA home">
+        <span class="brand-mark">L</span>
+        <span><strong>Project LIKHA</strong></span>
+      </a>
+      <div class="nav-menu sub-nav">
+        <a href="/">Home</a>
+        <a href="/news.html" aria-current="page">News</a>
+        <a href="/#about">About</a>
+        <a href="/#help">Take Action</a>
+        <span id="authNav" class="auth-slot"></span>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero section-dark">
+      <p class="eyebrow">Newsroom</p>
+      <h1>Stories, reports &amp; <strong>scholar milestones</strong></h1>
+      <p class="hero-lead">Follow what's happening across Project LIKHA—scholarship cycles, formation, and community impact.</p>
+    </section>
+
+    <section class="section section-white">
+      <div class="news-toolbar">
+        <div class="filter-chips" id="filterChips" role="group" aria-label="Filter by category"></div>
+        <div class="news-search">
+          <input type="search" id="searchInput" placeholder="Search news…" aria-label="Search news" />
+          <button class="button button-donate" type="button" id="searchBtn">Search</button>
+        </div>
+      </div>
+
+      <div class="updates-grid" id="postsGrid" aria-live="polite"></div>
+      <p class="empty-state hidden" id="emptyState">No stories here yet. Check back soon.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <span>© Project LIKHA</span>
+      <span>"Created in Christ Jesus to do good works." — Eph. 2:10</span>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/news.js"></script>
+</body>
+</html>

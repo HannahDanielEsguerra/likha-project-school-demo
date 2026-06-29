@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In | Project LIKHA</title>
+  <meta name="description" content="Sign in to your Project LIKHA account." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="/" class="brand" aria-label="Project LIKHA home">
+        <span class="brand-mark">L</span>
+        <span><strong>Project LIKHA</strong></span>
+      </a>
+      <div class="nav-menu sub-nav">
+        <a href="/">Home</a>
+        <a href="/news.html">News</a>
+        <a href="/#about">About</a>
+        <span id="authNav" class="auth-slot"></span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="auth-page">
+    <section class="auth-card">
+      <p class="eyebrow">Welcome back</p>
+      <h1>Sign in to Project LIKHA</h1>
+      <p class="auth-sub">Access news, leave comments, and—if you're staff—manage the site.</p>
+
+      <div class="auth-error hidden" id="error" role="alert"></div>
+
+      <form id="loginForm" autocomplete="on">
+        <label for="username">Username or email</label>
+        <input type="text" id="username" name="username" required autocomplete="username" />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required autocomplete="current-password" />
+
+        <button class="button button-donate full" type="submit" id="submitBtn">Sign in</button>
+      </form>
+
+      <p class="auth-switch">New here? <a href="/register.html">Create an account</a></p>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script>
+    const form = document.getElementById('loginForm');
+    const errorBox = document.getElementById('error');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.classList.remove('hidden');
+    }
+
+    // If already signed in, send them home.
+    getMe().then((user) => { if (user) window.location.href = '/'; });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.classList.add('hidden');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Signing in…';
+      try {
+        const { user } = await apiPost('login', {
+          username: document.getElementById('username').value.trim(),
+          password: document.getElementById('password').value,
+        });
+        window.location.href = isStaff(user) ? '/admin.html' : '/news.html';
+      } catch (err) {
+        showError(err.message);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign in';
+      }
+    });
+  </script>
+</body>
+</html>

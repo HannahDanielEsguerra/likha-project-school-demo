@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account | Project LIKHA</title>
+  <meta name="description" content="Create a Project LIKHA account to follow news and join the conversation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="/" class="brand" aria-label="Project LIKHA home">
+        <span class="brand-mark">L</span>
+        <span><strong>Project LIKHA</strong></span>
+      </a>
+      <div class="nav-menu sub-nav">
+        <a href="/">Home</a>
+        <a href="/news.html">News</a>
+        <a href="/#about">About</a>
+        <span id="authNav" class="auth-slot"></span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="auth-page">
+    <section class="auth-card">
+      <p class="eyebrow">Join the community</p>
+      <h1>Create your account</h1>
+      <p class="auth-sub">Follow scholar stories, formation updates, and join the conversation.</p>
+
+      <div class="auth-error hidden" id="error" role="alert"></div>
+
+      <form id="registerForm">
+        <label for="fullname">Full name</label>
+        <input type="text" id="fullname" required autocomplete="name" />
+
+        <label for="username">Username</label>
+        <input type="text" id="username" required autocomplete="username" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required autocomplete="email" />
+
+        <label for="password">Password <span class="optional">at least 8 characters</span></label>
+        <input type="password" id="password" required minlength="8" autocomplete="new-password" />
+
+        <button class="button button-donate full" type="submit" id="submitBtn">Create account</button>
+      </form>
+
+      <p class="auth-switch">Already have an account? <a href="/login.html">Sign in</a></p>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script>
+    const form = document.getElementById('registerForm');
+    const errorBox = document.getElementById('error');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.classList.remove('hidden');
+    }
+
+    getMe().then((user) => { if (user) window.location.href = '/'; });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.classList.add('hidden');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Creating account…';
+      try {
+        await apiPost('register', {
+          fullname: document.getElementById('fullname').value.trim(),
+          username: document.getElementById('username').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          password: document.getElementById('password').value,
+        });
+        window.location.href = '/news.html';
+      } catch (err) {
+        showError(err.message);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Create account';
+      }
+    });
+  </script>
+</body>
+</html>
